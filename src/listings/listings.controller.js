@@ -34,9 +34,9 @@ export const createRecord = async (req,res)=>{
 
 export const putById =  async (req,res)=>{
     try {
-        const {id } = req.params
+        const {id ,date} = req.params
         const {petsNumber} = req.body
-        const response = await listingService.putById(id,petsNumber);
+        const response = await listingService.putById(id,{petsNumber:petsNumber,date:date});
         res.json(response)
     } catch (error) {
         res.status(501).json({error:error.message})
