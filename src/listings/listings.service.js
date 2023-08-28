@@ -33,11 +33,10 @@ export const createRecord = async (date, initialPetsNumber) => {
 
 export const putById = async (id, body) => {
   try {
-    petsNumber = parseInt(body.petsNumber);
+    const petsNumber = parseInt(body.petsNumber);
     if (isNaN(petsNumber))
       throw new Error("error  petsNumber must be an integer number ");
     if (petsNumber < 0) throw new Error("error  petsNumber must be positive ");
-    console.log(petsNumber > 0);
     id = parseInt(id);
     if (isNaN(id)) throw new Error("error  id must be an integer");
     const listing = await ListingModel.findByPk(id);
