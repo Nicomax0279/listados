@@ -4,7 +4,6 @@ import * as listingService from "./listings.service.js"
 export const getAll = async (req,res)=>{
     try {
         let response
-        console.log(req.query)
         if(req.query.date){
             response = await listingService.getByDate(req.query.date)
         }else{
